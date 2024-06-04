@@ -1,40 +1,51 @@
 import React from "react";
-import "./NavBar.css";
+import styles from "./NavBar.module.css";
 import logo from "../../assets/logo.png";
 import home from "../../assets/Home-4--Streamline-Core.png";
 import task from "../../assets/Task-List--Streamline-Core.png";
 import calendar from "../../assets/Blank-Calendar--Streamline-Core.png";
 import user from "../../assets/User-Circle-Single--Streamline-Core.png";
 import logout from "../../assets/Logout-1--Streamline-Core.png";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav>
-      <div className="container_nav">
-        <div className="logo">
-          <img src={logo} />
+    <nav className={styles.container}>
+      <div className={styles.container_nav}>
+        <div className={styles.container_logo}>
+          <img src={logo} className={styles.logo} />
         </div>
-        <div className="separator"></div>
-        <ul>
+        <div className={styles.separator}></div>
+        <ul className={styles.container_lista}>
           <li>
-            <img src={home} />
-            <a href="#">Home</a>
+            <Link to="/">
+              <img src={home} alt="Home" />
+              Home
+            </Link>
           </li>
           <li>
-            <img src={task} />
-            <a href="#">Tarefas</a>
+            <Link to="/tasks">
+              <img src={task} alt="Tarefas" />
+              Tarefas
+            </Link>
           </li>
           <li>
-            <img src={calendar} />
-            <a href="#">Calendario</a>
+            <Link to="/calendar">
+              <img src={calendar} alt="Calendario" />
+              Calendário
+            </Link>
           </li>
           <li>
-            <img src={user} />
-            <a href="#">Perfil</a>
+            <Link to="/profile">
+              <img src={user} alt="Perfil" />
+              Perfil
+            </Link>
           </li>
           <li>
-            <img src={logout} />
-            <a href="#">Sair</a>
+            <Link to="/logout">
+              <img src={logout} alt="Sair" />
+              Sair
+            </Link>
           </li>
         </ul>
       </div>

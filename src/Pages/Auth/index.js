@@ -20,11 +20,6 @@ function Form() {
         email,
         senha,
       });
-
-      console.log(response.data);
-
-      console.log(response.message);
-
       if (response.message = "success" ) {
         navigate('/Dashboard');
       } else {
