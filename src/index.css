@@ -1,3 +1,7 @@
+* {
+  text-decoration: none;
+}
+
 body {
   background-color: #718daa;
   margin: 0;
