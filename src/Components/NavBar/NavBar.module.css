@@ -1,6 +1,6 @@
 .container {
     width: 234px;
-    height: 668px;
+    height: 100vh;
     margin-top: 10px;
     margin-left: 10px;
     background-color: rgba(230, 222, 197, 0.8);
@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
   }
-  .logo {
+  .logo { 
     margin-top: 4px;
   }
   .separator {
