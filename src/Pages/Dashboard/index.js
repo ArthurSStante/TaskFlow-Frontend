@@ -1,6 +1,6 @@
 import React from "react";
 import "./Dash.css";
-import NavBar from '../../Components/NavBar';
+import NavBar from "../../Components/NavBar";
 
 function Dash() {
   return (
@@ -15,20 +15,18 @@ function Dash() {
           <button>+</button>
         </div>
         <div className="table">
-         <t>Tarefas do Dia: </t>
+          <t>Tarefas do Dia: </t>
         </div>
         <div className="cronograma">
           <div className="content">
             <t>Crie um Cronograma </t>
             <button>+</button>
-          </div>  
-          <div className="table2">
-          <t>Seus Cronogramas: </t>
+          </div>
+          <div className="table">
+            <t>Seus Cronogramas: </t>
           </div>
         </div>
       </div>
-
-      
     </section>
   );
 }
