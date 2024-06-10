@@ -1,0 +1,151 @@
+.custom-calendar-wrapper {
+  padding: 0px 5px 0px 5px;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid #806840;
+  border-radius: 5px;
+}
+/* cor do header do calendario */
+.custom-calendar-wrapper .ant-picker-calendar {
+  background: transparent;
+}
+/* cor do header do painel */
+.custom-calendar-wrapper .ant-picker-panel {
+  background: transparent;
+}
+/* cor das letras e numeros do panel */
+.ant-picker-calendar .ant-picker-content th {
+  color: #332309;
+}
+.ant-picker-calendar .ant-picker-cell-in-view {
+  color: #332309;
+}
+/* cor do fundo do painel do select */
+.ant-select-dropdown {
+  background-color: #e6dec5;
+}
+/* cor da borda dos select e do fundo e das letras */
+.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
+  border: 1px solid #332309;
+  background: #e6dec5;
+  color: #332309;
+}
+.ant-select .ant-select-arrow {
+  color: #332309;
+}
+.ant-select-outlined:not(.ant-select-disabled):not(
+    .ant-select-customize-input
+  ):not(.ant-pagination-size-changer)
+  .ant-select-selector:hover {
+  border-color: #332309;
+}
+.ant-select-focused:where(
+    .css-dev-only-do-not-override-3rel02
+  ).ant-select-outlined:not(.ant-select-disabled):not(
+    .ant-select-customize-input
+  ):not(.ant-pagination-size-changer)
+  .ant-select-selector {
+  border-color: #806840;
+  box-shadow: 0 0 0 2px rgba(207, 206, 191, 1);
+}
+
+/* botões*/
+
+/* cor das letras do botao selecionado  */
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  color: #332309;
+}
+/* cor da borda do botao selecionado */
+.ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  ):first-child {
+  border-color: #332309;
+}
+/* cor do fundo do botão selecionado*/
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  background: #e6dec5;
+  border-color: #332309;
+}
+/* cor da borda do selecionado hover*/
+.ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  ):hover {
+  border-color: #806840;
+  transition: 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* cor da borda do selecionado before*/
+.ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  )::before {
+  background-color: #332309;
+  transition: 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* cor borda de separação dos botoes */
+.ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  ):hover::before {
+  background-color: #806840;
+}
+.ant-radio-button-wrapper:not(:first-child)::before {
+  background-color: transparent;
+}
+/* cor das letra do botao não selecionado e a cor do fundo*/
+.ant-radio-button-wrapper {
+  background: #e6dec5;
+  color: #332309;
+  border: 1px solid #bfae8f;
+}
+/* cor das letra e da borda do botão não selecionado hover */
+.ant-radio-button-wrapper:hover {
+  color: #332309;
+  border-color: #332309;
+  transition: 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+/* cor das letra do botao hover */
+.ant-radio-button-wrapper-checked:not(
+    .ant-radio-button-wrapper-disabled
+  ):hover {
+  transition: 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  color: #332309;
+}
+/* cor da data selecionada */
+.ant-picker-calendar
+  .ant-picker-cell-in-view.ant-picker-cell-selected:not(
+    .ant-picker-cell-disabled
+  )
+  .ant-picker-cell-inner {
+  background: #332309;
+}
+.ant-picker-calendar
+  .ant-picker-cell-in-view.ant-picker-cell-today
+  .ant-picker-cell-inner::before {
+  border: 1px solid #332309;
+}
+
+/* fixando na mesma posição */
+.ant-picker-calendar .ant-picker-calendar-header {
+  display: block;
+}
+.ant-picker-calendar
+  .ant-picker-calendar-header
+  .ant-picker-calendar-mode-switch {
+  width: 100%;
+  margin-top: 8px;
+  margin-inline-start: 0;
+}
+.ant-picker-calendar
+  .ant-picker-calendar-header
+  .ant-picker-calendar-mode-switch
+  > label {
+  width: 50%;
+  text-align: center;
+}
+.ant-picker-calendar
+  .ant-picker-calendar-header
+  .ant-picker-calendar-month-select {
+  width: calc(50% - 8px);
+}
+.ant-picker-calendar
+  .ant-picker-calendar-header
+  .ant-picker-calendar-year-select {
+  width: 50%;
+}
