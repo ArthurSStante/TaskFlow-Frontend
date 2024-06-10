@@ -1,6 +1,7 @@
 import React from "react";
 import "./Dash.css";
 import NavBar from "../../Components/NavBar";
+import Cards from "../../Components/Cards";
 
 function Dash() {
   return (
@@ -16,6 +17,7 @@ function Dash() {
         </div>
         <div className="table">
           <t>Tarefas do Dia: </t>
+          <Cards />
         </div>
         <div className="cronograma">
           <div className="content">
