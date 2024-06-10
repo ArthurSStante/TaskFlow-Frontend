@@ -7,6 +7,7 @@ import calendar from "../../assets/Blank-Calendar--Streamline-Core.png";
 import user from "../../assets/User-Circle-Single--Streamline-Core.png";
 import logout from "../../assets/Logout-1--Streamline-Core.png";
 import { Link } from "react-router-dom";
+import DateRangeCalendarCalendarsProp from "../Calendar/index";
 
 function NavBar() {
   return (
@@ -23,18 +24,21 @@ function NavBar() {
               Home
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/tasks">
               <img src={task} alt="Tarefas" />
               Tarefas
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/calendar">
               <img src={calendar} alt="Calendario" />
-              Calendário
+              Calendario
             </Link>
           </li>
+          <div className={styles.calendar}>
+            <DateRangeCalendarCalendarsProp />
+          </div>
           <li>
             <Link to="/profile">
               <img src={user} alt="Perfil" />
