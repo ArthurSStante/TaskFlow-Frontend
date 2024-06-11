@@ -2,6 +2,7 @@ import React from "react";
 import "./Dash.css";
 import NavBar from "../../Components/NavBar";
 import Cards from "../../Components/Cards";
+import Modal from "../../Components/modals";
 
 function Dash() {
   return (
@@ -13,7 +14,7 @@ function Dash() {
         </div>
         <div className="content">
           <t>Crie sua tarefas: </t>
-          <button>+</button>
+          <Modal />
         </div>
         <div className="table">
           <t>Tarefas do Dia: </t>
@@ -21,11 +22,10 @@ function Dash() {
         </div>
         <div className="cronograma">
           <div className="content">
-            <t>Crie um Cronograma </t>
-            <button>+</button>
+            <t>Tarefas finalizadas: </t>
           </div>
           <div className="table">
-            <t>Seus Cronogramas: </t>
+            <t>Concluidas: </t>
           </div>
         </div>
       </div>
