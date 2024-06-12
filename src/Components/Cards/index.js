@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './cards.css'; // Certifique-se de que o caminho está correto
 import { api } from '../../utils/api';
+import ModalUD from "../../ModalUD";
 
 function Cards() {
     const [dados, setDados] = useState([]);
@@ -12,7 +13,6 @@ function Cards() {
             .get("task")
             .then((response) => {
                 console.log("Resposta da API:", response.data);
-                // Certifique-se de que response.data.task é um array
                 if (Array.isArray(response.data.task)) {
                     setDados(response.data.task);
                 } else {
@@ -37,24 +37,27 @@ function Cards() {
     if (error) {
         return <p>{error}</p>;
     }
-    console.log(dados);
+
     if (dados.length === 0) {
         return (
-            <div className="no-tasks">
+            <div className="no-ttasks">
                 <p>--Sem tarefas criadas--</p>
             </div>
         );
     }
+
     return (
         <div>
-            {dados.map((dados) => (
-                <div key={dados.id} className="card">
+            {dados.map((tarefa) => (
+                <div key={tarefa.id} className="card">
                     <div className="card-details">
-                        <p className="text-title text-opacity">{dados.title}</p>
-                        <p className="text-body text-opacity">Data limite de finalização: {dados.data_tarefa}</p>
-                        <p className="text-body text-opacity">Status: {dados.fg_ativo ? 'Ativo' : 'Inativo'}</p>
+                        <p className="text-title text-opacity">{tarefa.title}</p>
+                        <p className="text-body text-opacity">Data limite de finalização: {tarefa.data_tarefa}</p>
+                        <p className="text-body text-opacity">Status: {tarefa.fg_ativo ? 'Ativo' : 'Inativo'}</p>
                     </div>
-                    <button className="card-button">More info</button>
+                    <button className="card-button">
+                        <ModalUD tarefa={tarefa} />
+                    </button>
                 </div>
             ))}
         </div>
