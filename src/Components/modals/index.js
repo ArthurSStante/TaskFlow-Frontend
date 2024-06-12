@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Modal } from "antd";
 import { AiTwotonePlusCircle } from "react-icons/ai";
 import styles from "./modal.module.css";
+import { Modal } from 'antd';
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,5 +52,6 @@ const App = () => {
     </>
   );
 };
+
 
 export default App;
