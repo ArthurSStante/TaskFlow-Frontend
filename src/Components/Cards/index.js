@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './cards.css'; // Certifique-se de que o caminho está correto
 import { api } from '../../utils/api';
-import ModalUD from "../../ModalUD";
+import ModalUD from "../ModalUD";
 
 function Cards() {
     const [dados, setDados] = useState([]);
@@ -47,7 +47,7 @@ function Cards() {
     }
 
     return (
-        <div>
+        <div className="cards">
             {dados.map((tarefa) => (
                 <div key={tarefa.id} className="card">
                     <div className="card-details">
