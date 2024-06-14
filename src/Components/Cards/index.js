@@ -52,9 +52,9 @@ function Cards() {
   return (
     <div className="cards">
       {dados.map((tarefa) => (
-        <div key={tarefa.id} className="card">
+        <div key={tarefa.id_tarefa} className="card">
           <div className="card-details">
-            <p className="text-title text-opacity">{tarefa.title}</p>
+            <p className="text-title text-opacity">{tarefa.titulo_tarefa}</p>
             <p className="text-body text-opacity">
               Data limite de finalização: {tarefa.data_tarefa}
             </p>

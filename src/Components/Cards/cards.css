@@ -16,6 +16,9 @@
     margin-left: 8px;
 }
 
+.card p.text-title.text-opacity{
+    font-size: 1rem;
+}
 .card-details {
     color: black;
     height: 100%;
