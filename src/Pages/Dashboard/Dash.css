@@ -35,8 +35,14 @@
   padding: 10px;
   height: 200px;
   width: 100%;
+  
 }
 
 .cronograma {
   margin-top: 112px;
+}
+
+.cards_table {
+  display: flex;
+  flex-direction: row;
 }

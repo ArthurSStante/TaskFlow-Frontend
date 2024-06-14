@@ -1,7 +1,6 @@
 .cards {
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    flex-direction: row;
 }
 
 .card {
@@ -14,6 +13,7 @@
     border: 2px solid #c3c6ce;
     transition: 0.5s ease-out;
     overflow: visible;
+    margin-left: 8px;
 }
 
 .card-details {
