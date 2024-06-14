@@ -1,69 +1,69 @@
-import React, { useState } from 'react';
-import './Login.css';
-import { useNavigate } from 'react-router-dom';
-import logo from '../../assets/logo.png';
-import imgUp from '../../assets/imgUp.png';
-import imgDown from '../../assets/imgDown.png';
-import { api } from '../../utils/api';
+import React, { useState } from "react";
+import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import imgUp from "../../assets/imgUp.png";
+import imgDown from "../../assets/imgDown.png";
+import { api } from "../../utils/api";
 
 function Form() {
   const navigate = useNavigate();
   const [isRegister, setIsRegister] = useState(false);
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post('/auth/login', {
+      const response = await api.post("/auth/login", {
         email,
         senha,
       });
-      if (response.message = "success" ) {
-        navigate('/Dashboard');
+      if ((response.message = "success")) {
+        navigate("/Dashboard");
       } else {
-        console.error('Falha no login: ', response.statusText);
+        console.error("Falha no login: ", response.statusText);
       }
     } catch (error) {
-      console.error('Erro ao enviar os dados:', error);
+      console.error("Erro ao enviar os dados:", error);
     }
-    console.log('Email:', email);
-    console.log('Senha:', senha);
+    console.log("Email:", email);
+    console.log("Senha:", senha);
   };
 
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     try {
       if (senha !== confirmarSenha) {
-        console.error('As senhas não coincidem.');
+        console.error("As senhas não coincidem.");
         return;
       }
-      const response = await api.post('/register', {
+      const response = await api.post("/register", {
         email,
         senha,
       });
 
       console.log(response.data);
       if (response.status >= 200 && response.status < 300) {
-        console.log('registro bem-sucedido!');
-        navigate('/Dash');
+        console.log("registro bem-sucedido!");
+        navigate("/Dash");
       } else {
-        console.error('Falha no registro: ', response.statusText);
+        console.error("Falha no registro: ", response.statusText);
       }
     } catch (error) {
-      console.error('Erro ao enviar os dados:', error);
+      console.error("Erro ao enviar os dados:", error);
     }
-    console.log('Email:', email);
-    console.log('Senha:', senha);
-    console.log('Confirmar Senha:', confirmarSenha);
+    console.log("Email:", email);
+    console.log("Senha:", senha);
+    console.log("Confirmar Senha:", confirmarSenha);
   };
 
   const handleCheckboxChange = () => {
     setIsRegister(!isRegister);
-    setEmail('');
-    setSenha('');
-    setConfirmarSenha('');
+    setEmail("");
+    setSenha("");
+    setConfirmarSenha("");
   };
 
   return (
@@ -92,12 +92,12 @@ function Form() {
                 onSubmit={isRegister ? handleRegisterSubmit : handleLoginSubmit}
                 className="form"
               >
-                <div className={`card-${isRegister ? 'back' : 'front'}`}>
+                <div className={`card-${isRegister ? "back" : "front"}`}>
                   <div className="center-wrap">
                     <div className="section">
                       <img src={logo} className="logo" alt="logo"></img>
                       <h1 className="titulo">
-                        {isRegister ? 'Registre-se' : 'Login'}
+                        {isRegister ? "Registre-se" : "Login"}
                       </h1>
                       <div className="input-wrapper">
                         <input
@@ -127,7 +127,7 @@ function Form() {
                         </div>
                       )}
                       <button className="btn" type="submit">
-                        {isRegister ? 'Registrar' : 'Continuar'}
+                        {isRegister ? "Registrar" : "Continuar"}
                       </button>
                       {!isRegister && (
                         <div className="forgotPassword_container">

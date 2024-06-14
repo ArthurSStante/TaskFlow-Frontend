@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./modalUD.module.css";
-import { Modal } from 'antd';
+import { Modal, Button } from "antd";
 
 const ModalUD = ({ tarefa, onUpdate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,26 +18,42 @@ const ModalUD = ({ tarefa, onUpdate }) => {
       title,
       fg_ativo: fgAtivo,
       data_tarefa: dataTarefa,
-      descricao
+      descricao,
     };
 
     // Fazer a chamada de API para atualizar a tarefa no backend
     fetch(`/items/${tarefa.id}`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedTask)
+      body: JSON.stringify(updatedTask),
     })
-    .then(response => response.json())
-    .then(data => {
-      // Chama o callback onUpdate para atualizar a tarefa na interface
-      onUpdate(data);
-      setIsModalOpen(false);
+      .then((response) => response.json())
+      .then((data) => {
+        // Chama o callback onUpdate para atualizar a tarefa na interface
+        onUpdate(data);
+        setIsModalOpen(false);
+      })
+      .catch((error) => {
+        console.error("Erro ao atualizar a tarefa:", error);
+      });
+  };
+
+  const handleDelete = () => {
+    // Fazer a chamada de API para deletar a tarefa no backend
+    fetch(`/delete-task/${tarefa.id}`, {
+      method: "DELETE",
     })
-    .catch(error => {
-      console.error('Erro ao atualizar a tarefa:', error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        // Chama o callback onUpdate para atualizar a tarefa na interface
+        onUpdate(data);
+        setIsModalOpen(false);
+      })
+      .catch((error) => {
+        console.error("Erro ao deletar a tarefa:", error);
+      });
   };
 
   const handleCancel = () => {
@@ -50,8 +66,17 @@ const ModalUD = ({ tarefa, onUpdate }) => {
       <Modal
         title="Atualizar Tarefa"
         open={isModalOpen}
-        onOk={handleOk}
         onCancel={handleCancel}
+        cancelText="Cancelar"
+        footer={[
+          
+          <Button key="delete" type="danger" onClick={handleDelete}>
+            Deletar
+          </Button>,
+          <Button key="update" type="primary" onClick={handleOk}>
+            Atualizar
+          </Button>,
+        ]}
       >
         <div className={styles.container}>
           <div>

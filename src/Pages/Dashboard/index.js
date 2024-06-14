@@ -18,16 +18,18 @@ function Dash() {
         </div>
         <div className="table">
           <t>Tarefas do Dia: </t>
-          <Cards />
+          <div className="cards_table">
+            <Cards />
+          </div>
         </div>
-        <div className="cronograma">
+        {/* <div className="cronograma">
           <div className="content">
             <t>Tarefas finalizadas: </t>
           </div>
           <div className="table">
             <t>Concluidas: </t>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
