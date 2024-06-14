@@ -25,6 +25,7 @@ const App = () => {
         title="Crie sua Tarefa"
         open={isModalOpen}
         onOk={handleOk}
+        okText="Confirmar"
         onCancel={handleCancel}
       >
         <div className={styles.container}>
