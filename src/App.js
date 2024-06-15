@@ -9,8 +9,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<LandingPage />}></Route>
-        <Route exact path="/login" element={<Auth />}></Route>
+        {/* <Route exact path="/" element={<LandingPage />}></Route> */}
+        <Route exact path="/" element={<Auth />}></Route>
         <Route exact path="/Dashboard" element={<Dashboard />}></Route>
       </Routes>
     </Router>
