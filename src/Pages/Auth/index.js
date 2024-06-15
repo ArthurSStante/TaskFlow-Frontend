@@ -5,6 +5,10 @@ import logo from "../../assets/logo.png";
 import imgUp from "../../assets/imgUp.png";
 import imgDown from "../../assets/imgDown.png";
 import { api } from "../../utils/api";
+<<<<<<< HEAD
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+=======
+>>>>>>> 077dce8ecbef27b1a2105984fe9c917e3d5de3c2
 
 function Form() {
   const navigate = useNavigate();
@@ -12,6 +16,14 @@ function Form() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
+<<<<<<< HEAD
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+=======
+>>>>>>> 077dce8ecbef27b1a2105984fe9c917e3d5de3c2
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +32,11 @@ function Form() {
         email,
         senha,
       });
+<<<<<<< HEAD
+      if (response.status >= 200 && response.status < 300) {
+=======
       if ((response.message = "success")) {
+>>>>>>> 077dce8ecbef27b1a2105984fe9c917e3d5de3c2
         navigate("/Dashboard");
       } else {
         console.error("Falha no login: ", response.statusText);
@@ -39,7 +55,11 @@ function Form() {
         console.error("As senhas não coincidem.");
         return;
       }
+<<<<<<< HEAD
+      const response = await api.post("/users/register", {
+=======
       const response = await api.post("/register", {
+>>>>>>> 077dce8ecbef27b1a2105984fe9c917e3d5de3c2
         email,
         senha,
       });
@@ -47,7 +67,11 @@ function Form() {
       console.log(response.data);
       if (response.status >= 200 && response.status < 300) {
         console.log("registro bem-sucedido!");
+<<<<<<< HEAD
+        navigate("/dashboard");
+=======
         navigate("/Dash");
+>>>>>>> 077dce8ecbef27b1a2105984fe9c917e3d5de3c2
       } else {
         console.error("Falha no registro: ", response.statusText);
       }
@@ -111,19 +135,26 @@ function Form() {
                       <div className="input-wrapper">
                         <input
                           placeholder="Insira sua senha"
-                          type="password"
+                          type={showPassword ? "text" : "password"}
                           value={senha}
                           onChange={(e) => setSenha(e.target.value)}
                         />
+                        <span
+                          onClick={toggleShowPassword}
+                          className="showPassword"
+                        >
+                          {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </span>
                       </div>
                       {isRegister && (
                         <div className="input-wrapper">
                           <input
                             placeholder="Confirme sua senha"
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             value={confirmarSenha}
                             onChange={(e) => setConfirmarSenha(e.target.value)}
                           />
+                        
                         </div>
                       )}
                       <button className="btn" type="submit">

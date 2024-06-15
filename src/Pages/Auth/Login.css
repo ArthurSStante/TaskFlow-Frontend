@@ -38,6 +38,13 @@
   position: absolute;
   left: -9999px;
 }
+.showPassword {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 .checkbox:checked + label,
 .checkbox:not(:checked) + label {
   position: relative;
@@ -183,6 +190,7 @@
 }
 .input-wrapper {
   margin-bottom: 0.5em;
+  position: relative;
 }
 .input-wrapper input[type="text"],
 .input-wrapper input[type="password"] {
