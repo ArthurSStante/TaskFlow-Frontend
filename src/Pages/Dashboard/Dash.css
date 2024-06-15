@@ -2,6 +2,9 @@
   display: flex;
   color: #332309;
 }
+p{
+  margin: 0;
+}
 
 .title {
   font-weight: bold;
@@ -35,7 +38,6 @@
   padding: 10px;
   height: 200px;
   width: 100%;
-  
 }
 
 .cronograma {
