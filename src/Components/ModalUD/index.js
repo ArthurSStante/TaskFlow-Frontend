@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./modalUD.module.css";
 import { Modal, Button } from "antd";
 import { api } from "../../utils/api";
 
+const statusMapping = {
+  "pendente": 2,
+  "andamento": 1,
+  "concluida": 3,
+};
+
 const ModalUD = ({ tarefa, onUpdate }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [idTarefa, setIdTarefa] = useState(tarefa.id_tarefa);
   const [title, setTitle] = useState(tarefa.titulo_tarefa);
   const [fgAtivo, setFgAtivo] = useState(tarefa.fg_ativo);
   const [dataTarefa, setDataTarefa] = useState(tarefa.data_tarefa);
   const [descricao, setDescricao] = useState(tarefa.desc_tarefa);
+  const [horaLimite, setHoraLimite] = useState(tarefa.horario || "");
+
+  useEffect(() => {
+    setIdTarefa(tarefa.id_tarefa);
+    setTitle(tarefa.titulo_tarefa);
+    setFgAtivo(tarefa.fg_ativo);
+    setDataTarefa(tarefa.data_tarefa);
+    setDescricao(tarefa.desc_tarefa);
+    setHoraLimite(tarefa.horario || "");
+  }, [tarefa]);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -16,15 +33,17 @@ const ModalUD = ({ tarefa, onUpdate }) => {
 
   const handleOk = () => {
     const updatedTask = {
-      titulo_tarefa: title,
-      fg_ativo: fgAtivo,
-      data_tarefa: dataTarefa,
-      desc_tarefa: descricao,
+      id_tarefa: idTarefa,
+      titleTask: title,
+      statusTask: statusMapping[fgAtivo],
+      limited_date: dataTarefa,
+      descriptionTask: descricao,
+      hourTask: horaLimite,
     };
 
     // Fazer a chamada de API para atualizar a tarefa no backend
     api
-      .put("/task/delete-task", updatedTask)
+      .put("/task/edit-task", updatedTask)
       .then((response) => {
         if (response.status !== 200) {
           throw new Error("Erro ao atualizar a tarefa");
@@ -33,6 +52,7 @@ const ModalUD = ({ tarefa, onUpdate }) => {
       })
       .then((data) => {
         // Chama o callback onUpdate para atualizar a tarefa na interface
+        console.log("mensagem de sucesso");
         onUpdate(data);
         setIsModalOpen(false); // Fecha o modal após a atualização
       })
@@ -45,9 +65,7 @@ const ModalUD = ({ tarefa, onUpdate }) => {
     // Fazer a chamada de API para deletar a tarefa no backend
     api
       .delete("/task/delete-task", {
-        data: {
-          id_tarefa: tarefa.id_tarefa,
-        },
+        data: { id_tarefa: tarefa.id_tarefa },
       })
       .then((response) => {
         if (response.status !== 200) {
@@ -93,7 +111,7 @@ const ModalUD = ({ tarefa, onUpdate }) => {
             <input
               className={styles.input}
               placeholder="Nome da Tarefa"
-              value={tarefa.titulo_tarefa}
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
@@ -101,29 +119,40 @@ const ModalUD = ({ tarefa, onUpdate }) => {
             <select
               className={styles.select}
               name="Status da Tarefa"
-              value={fgAtivo ? "Ativo" : "Inativo"}
-              onChange={(e) => setFgAtivo(e.target.value === "Ativo")}
+              value={fgAtivo}
+              onChange={(e) => setFgAtivo(e.target.value)}
             >
-              <option disabled hidden>
+              <option value="" disabled hidden>
                 Selecione o status da tarefa
               </option>
-              <option value="Ativo">Ativo</option>
-              <option value="Inativo">Inativo</option>
+              <option value="pendente">Pendente</option>
+              <option value="andamento">Andamento</option>
+              <option value="concluida">Concluida</option>
             </select>
           </div>
           <div>
             <input
               className={styles.input}
               placeholder="Data Limite"
-              value={tarefa.data_tarefa}
+              type="date"
+              value={dataTarefa}
               onChange={(e) => setDataTarefa(e.target.value)}
             />
           </div>
           <div>
             <input
               className={styles.input}
+              placeholder="Hora Limite"
+              type="time"
+              value={horaLimite}
+              onChange={(e) => setHoraLimite(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              className={styles.input}
               placeholder="Descrição"
-              value={tarefa.desc_tarefa}
+              value={descricao}
               onChange={(e) => setDescricao(e.target.value)}
             />
           </div>
