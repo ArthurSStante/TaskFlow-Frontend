@@ -13,11 +13,11 @@ function Dash() {
           <h1>Dashboard</h1>
         </div>
         <div className="content">
-          <t>Crie sua tarefas: </t>
+          <p>Crie sua tarefas: </p>
           <Modal />
         </div>
         <div className="table">
-          <t>Tarefas do Dia: </t>
+          <p>Tarefas do Dia: </p>
           <div className="cards_table">
             <Cards />
           </div>
