@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiTwotonePlusCircle } from "react-icons/ai";
 import styles from "./modal.module.css";
-import { Modal } from 'antd';
+import { Modal } from "antd";
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +11,7 @@ const App = () => {
   };
 
   const handleOk = () => {
+    // Lógica para criar a tarefa
     setIsModalOpen(false);
   };
 
@@ -53,6 +54,5 @@ const App = () => {
     </>
   );
 };
-
 
 export default App;
