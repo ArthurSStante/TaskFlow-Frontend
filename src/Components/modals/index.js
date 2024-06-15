@@ -10,6 +10,7 @@ const App = () => {
   const [statusTarefa, setStatusTarefa] = useState("");
   const [dataLimite, setDataLimite] = useState("");
   const [descricao, setDescricao] = useState("");
+  const [horaLimite, setHoraLimite] = useState("");
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -18,12 +19,16 @@ const App = () => {
   const handleOk = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post("/task/register-taks", {
-        titulo_tarefa: tituloTarefa,
-        fg_ativo: statusTarefa,
-        data_tarefa: dataLimite,
-        desc_tarefa: descricao,
-      });
+      const data = {
+        titleTask: tituloTarefa,
+        statusTask: statusTarefa,
+        limited_date: dataLimite,
+        hourTask: horaLimite,
+        descriptionTask: descricao,
+      };
+      console.log("JSON", data);
+
+      const response = await api.post("/task/register-task", data);
       if (response.status >= 200) {
         console.log("Tarefa registrada com sucesso");
         setIsModalOpen(false);
@@ -34,6 +39,10 @@ const App = () => {
   };
   const handleCancel = () => {
     setIsModalOpen(false);
+  };
+
+  const handleStatusChange = (e) => {
+    setStatusTarefa(e.target.value);
   };
 
   return (
@@ -59,7 +68,8 @@ const App = () => {
             <select
               className={styles.select}
               name="Status da Tarefa"
-              defaultValue={statusTarefa}
+              value={statusTarefa}
+              onChange={handleStatusChange}
             >
               <option value="" disabled hidden>
                 Selecione o status da tarefa
@@ -76,6 +86,15 @@ const App = () => {
               type="date"
               value={dataLimite}
               onChange={(e) => setDataLimite(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              className={styles.input}
+              placeholder="hora limite"
+              type="time"
+              value={horaLimite}
+              onChange={(e) => setHoraLimite(e.target.value)}
             />
           </div>
           <div>

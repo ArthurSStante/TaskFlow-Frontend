@@ -8,18 +8,15 @@ function Cards() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    api
-      .get("task")
+  // Função para buscar os dados das tarefas na API
+  const fetchTasks = () => {
+    api.get("task")
       .then((response) => {
         console.log("Resposta da API:", response.data);
         if (Array.isArray(response.data.task)) {
           setDados(response.data.task);
         } else {
-          console.error(
-            "A resposta da API não contém um array esperado:",
-            response.data
-          );
+          console.error("A resposta da API não contém um array esperado:", response.data);
           setDados([]);
         }
       })
@@ -31,10 +28,28 @@ function Cards() {
       .finally(() => {
         setLoading(false);
       });
+  };
+
+  // Efeito para buscar os dados das tarefas ao montar o componente
+  useEffect(() => {
+    fetchTasks();
   }, []);
 
-  const handleUpdate = (updatedTask) => {
-    setDados(prevDados => prevDados.map(task => task.id_tarefa === updatedTask.id_tarefa ? updatedTask : task));
+  // Função para atualizar ou excluir uma tarefa
+  const handleUpdate = (updatedTask, action) => {
+    if (action === 'update') {
+      // Atualiza a tarefa existente na lista de dados
+      setDados(prevDados =>
+        prevDados.map(task =>
+          task.id_tarefa === updatedTask.id_tarefa ? updatedTask : task
+        )
+      );
+    } else if (action === 'delete') {
+      // Remove a tarefa da lista de dados
+      setDados(prevDados =>
+        prevDados.filter(task => task.id_tarefa !== updatedTask.id_tarefa)
+      );
+    }
   };
 
   if (loading) {
@@ -55,11 +70,16 @@ function Cards() {
               Data limite de finalização: {tarefa.data_tarefa}
             </p>
             <p className="text-body text-opacity">
-              Status: {tarefa.fg_ativo ? "Ativo" : "Inativo"}
+              Status: {tarefa.fg_ativo}
             </p>
           </div>
           <button className="card-button">
-            <ModalUD tarefa={tarefa} onUpdate={handleUpdate} />
+            {/* Passa a função handleUpdate e ação para o ModalUD */}
+            <ModalUD
+              tarefa={tarefa}
+              onUpdate={(updatedTask) => handleUpdate(updatedTask, 'update')}
+              onDelete={() => handleUpdate(tarefa, 'delete')}
+            />
           </button>
         </div>
       ))}

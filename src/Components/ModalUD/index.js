@@ -23,7 +23,8 @@ const ModalUD = ({ tarefa, onUpdate }) => {
     };
 
     // Fazer a chamada de API para atualizar a tarefa no backend
-    api.post(`/items/${tarefa.id_tarefa}`, updatedTask)
+    api
+      .put("/task/delete-task", updatedTask)
       .then((response) => {
         if (response.status !== 200) {
           throw new Error("Erro ao atualizar a tarefa");
@@ -42,27 +43,27 @@ const ModalUD = ({ tarefa, onUpdate }) => {
 
   const handleDelete = () => {
     // Fazer a chamada de API para deletar a tarefa no backend
-    api.delete('/task/delete-task', {
-      data: {
-        id_tarefa: tarefa.id_tarefa
-      }
-    })
-    .then((response) => {
-      if (response.status !== 200) {
-        throw new Error("Erro ao deletar a tarefa");
-      }
-      return response.data;
-    })
-    .then((data) => {
-      // Chama o callback onUpdate para atualizar a tarefa na interface
-      onUpdate(data);
-      setIsModalOpen(false); // Fecha o modal após a deleção
-    })
-    .catch((error) => {
-      console.error("Erro ao deletar a tarefa:", error);
-    });
+    api
+      .delete("/task/delete-task", {
+        data: {
+          id_tarefa: tarefa.id_tarefa,
+        },
+      })
+      .then((response) => {
+        if (response.status !== 200) {
+          throw new Error("Erro ao deletar a tarefa");
+        }
+        return response.data;
+      })
+      .then((data) => {
+        // Chama o callback onUpdate para atualizar a tarefa na interface
+        onUpdate(data);
+        setIsModalOpen(false); // Fecha o modal após a deleção
+      })
+      .catch((error) => {
+        console.error("Erro ao deletar a tarefa:", error);
+      });
   };
-  
 
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -75,9 +76,11 @@ const ModalUD = ({ tarefa, onUpdate }) => {
         title="Atualizar Tarefa"
         open={isModalOpen}
         onCancel={handleCancel}
-        cancelText="Cancelar"
         footer={[
-          <Button key="delete" type="danger" onClick={handleDelete}>
+          <Button key="back" onClick={handleCancel}>
+            Cancelar
+          </Button>,
+          <Button key="delete" type="primary" onClick={handleDelete} danger>
             Deletar
           </Button>,
           <Button key="update" type="primary" onClick={handleOk}>
