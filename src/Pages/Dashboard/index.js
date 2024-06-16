@@ -28,9 +28,13 @@ function Dash() {
         setTasks([]);
       }
     } catch (error) {
-      console.error("Erro ao buscar dados da API ", error);
-      setError("Erro ao buscar dados");
-      setTasks([]);
+      if (error.response && error.response.status === 404) {
+        console.error("Nenhuma tarefa encontrada:", error);
+        setTasks([]); // Considera a ausência de tarefas como uma lista vazia
+      } else {
+        console.error("Erro ao buscar dados da API ", error);
+        setError("Erro ao buscar dados");
+      }
     } finally {
       setLoading(false);
     }
