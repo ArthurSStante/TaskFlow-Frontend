@@ -9,7 +9,7 @@
   background: #e6e6e6;
   position: relative;
   padding: 0.5rem;
-  border: 2px solid #CFCEBF;
+  border: 2px solid #cfcebf;
   transition: 0.5s ease-out;
   overflow: visible;
   margin-left: 8px;
@@ -66,11 +66,13 @@
   align-items: center;
   font-size: 2em;
 }
+
 .title-card {
   font-size: large;
   color: #332309;
-  font-weight:500;
+  font-weight: 500;
 }
+
 .text-value {
   color: #806840;
   text-transform: capitalize;

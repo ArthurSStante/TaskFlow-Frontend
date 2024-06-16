@@ -3,6 +3,7 @@ import "./cards.css"; // Certifique-se de que o caminho está correto
 import { api } from "../../utils/api";
 import ModalUD from "../ModalUD";
 import { formatDate, formatTime } from "../../utils/dateUtils";
+import { Empty } from "antd";
 
 function Cards() {
   const [dados, setDados] = useState([]);
@@ -58,11 +59,14 @@ function Cards() {
   };
 
   if (loading) {
-    return <p>Carregando...</p>;
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return (
+      <div className="empty">
+          <Empty />
+      </div>
+    );
   }
 
   return (
@@ -83,9 +87,7 @@ function Cards() {
             </p>
             <p className="text-body text-opacity">
               <span className="title-card">Status: </span>
-              <span className="text-value">
-                {tarefa.fg_ativo}
-              </span>
+              <span className="text-value">{tarefa.fg_ativo}</span>
             </p>
           </div>
           <button className="card-button">

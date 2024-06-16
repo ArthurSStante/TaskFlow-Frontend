@@ -89,7 +89,7 @@ const ModalUD = ({ tarefa, onUpdate }) => {
 
   return (
     <>
-      <div onClick={showModal}>Edit</div>
+      <div onClick={showModal}>Editar</div>
       <Modal
         title="Atualizar Tarefa"
         open={isModalOpen}
