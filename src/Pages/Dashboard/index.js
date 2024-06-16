@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Dash.css";
 import NavBar from "../../Components/NavBar";
 import Cards from "../../Components/Cards";
@@ -18,20 +18,15 @@ function Dash() {
         </div>
         <div className="table">
           <p>Tarefas do Dia: </p>
-          <div className="cards_table">
-            <Cards />
+          <div className="carousel-container">
+            <div className="carousel">
+              <Cards />
+            </div>
           </div>
         </div>
-        {/* <div className="cronograma">
-          <div className="content">
-            <t>Tarefas finalizadas: </t>
-          </div>
-          <div className="table">
-            <t>Concluidas: </t>
-          </div>
-        </div> */}
       </div>
     </section>
   );
 }
+
 export default Dash;
