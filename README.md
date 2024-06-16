@@ -1,70 +1,68 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projeto React-App: TaskFlow 📋
 
-## Available Scripts
+Este projeto é um aplicativo web de Gerenciamento de Tarefas, desenvolvido em React. O objetivo do aplicativo é permitir que os usuários criem, atualizem e deletem tarefas. Além disso, os usuários podem fazer login para acessar suas tarefas. O design da interface é moderno e responsivo, utilizando o Ant Design. Para as requisições HTTP, utilizamos o Axios, e para manipulação de datas, utilizamos o Moment.js.
 
-In the project directory, you can run:
+##  💡 Funcionalidades
 
-### `npm start`
+- Autenticação de Usuário: Permite que os usuários façam login para acessar suas tarefas.
+- Criação de Tarefas: Os usuários podem criar novas tarefas com título, descrição e data de vencimento
+- Atualização de Tarefas: As tarefas existentes podem ser editadas.
+- Exclusão de Tarefas: Permite que os usuários deletem as tarefas que não são mais necessárias.
+- Listagem de Tarefas: Exibe uma lista de todas as tarefas do usuário.
+- Interface Responsiva: Design moderno e responsivo utilizando Ant Design.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##  📌 Tecnologias Utilizadas
+- React: Biblioteca JavaScript para construção de interfaces de usuário.
+- Ant Design: Framework de UI para React, que fornece uma vasta gama de componentes prontos para uso.
+- Axios: Biblioteca para fazer requisições HTTP.
+- Moment.js: Biblioteca para manipulação e formatação de datas.
+- React-DOM: Pacote que provê métodos específicos para DOM em aplicativos React.
+- React-Icons: Biblioteca de ícones para React.
+- React-Router-Dom: Biblioteca para controle de rotas em aplicativos React.
+## 📸 Screenshots
 
-### `npm test`
+![image](https://github.com/IT-group-FACEF/TaskFlow-Frontend/assets/106411734/698d131e-72a8-43ae-91d4-6ec21fd16250)
+-
+![image](https://github.com/IT-group-FACEF/TaskFlow-Frontend/assets/106411734/2c27f5fd-7342-4e10-9bad-bc0ae01e99fd)
+-
+![image](https://github.com/IT-group-FACEF/TaskFlow-Frontend/assets/106411734/a097f077-e00f-4a0d-b0f8-95d54928107b)
+-
+![image](https://github.com/IT-group-FACEF/TaskFlow-Frontend/assets/106411734/aad10b5a-e538-467d-bb74-74b3c552ea58)
+-
+![image](https://github.com/IT-group-FACEF/TaskFlow-Frontend/assets/106411734/8df8d2be-e83f-423b-a843-92a61d95c03e)
+## ❗ Pré-requisitos
+Certifique-se de que você tenha o Node.js e o npm instalados no seu sistema.
+## 🎊 Instruções de Instalação
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Instale TaskFlow 
 
-### `npm run build`
+```bash
+git clone https://github.com/ArthurSStante/TaskFlow-Frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+```bash
+cd nome-do-repositorio
+```
+```bash
+npm install
+```
+```bash
+npm start
+```
+Abra seu navegador e acesse http://localhost:3000
+## 📜 Documentação da API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+https://documenter.getpostman.com/view/33021411/2sA3XQhhhK
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 😎 Autores
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [@ArthurSStante](https://github.com/ArthurSStante)
+- [@lhbizzi](https://github.com/lhbizzi)
+- [@IanAugusto](https://github.com/IanAugusto)
+- [@enzosilva44](https://github.com/enzosilva44)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
