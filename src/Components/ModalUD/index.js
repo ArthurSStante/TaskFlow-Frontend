@@ -4,12 +4,12 @@ import { Modal, Button } from "antd";
 import { api } from "../../utils/api";
 
 const statusMapping = {
-  "pendente": 2,
-  "andamento": 1,
-  "concluida": 3,
+  pendente: 2,
+  andamento: 1,
+  concluida: 3,
 };
 
-const ModalUD = ({ tarefa, onUpdate }) => {
+const ModalUD = ({ tarefa, onUpdate, onDelete }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [idTarefa, setIdTarefa] = useState(tarefa.id_tarefa);
   const [title, setTitle] = useState(tarefa.titulo_tarefa);
@@ -52,8 +52,8 @@ const ModalUD = ({ tarefa, onUpdate }) => {
       })
       .then((data) => {
         // Chama o callback onUpdate para atualizar a tarefa na interface
-        console.log("mensagem de sucesso");
         onUpdate(data);
+        
         setIsModalOpen(false); // Fecha o modal após a atualização
       })
       .catch((error) => {
@@ -75,7 +75,8 @@ const ModalUD = ({ tarefa, onUpdate }) => {
       })
       .then((data) => {
         // Chama o callback onUpdate para atualizar a tarefa na interface
-        onUpdate(data);
+        onDelete(data);
+        console.log("task excluida")
         setIsModalOpen(false); // Fecha o modal após a deleção
       })
       .catch((error) => {
