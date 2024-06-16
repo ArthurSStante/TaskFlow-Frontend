@@ -1,29 +1,29 @@
 .cards {
   display: flex;
-  flex-direction: row;
+  width: 100%;
 }
 
 .card {
-  width: 110px;
-  height: 110px;
+  height: 190px;
   border-radius: 20px;
-  background: #f5f5f5;
+  background: #e6e6e6;
   position: relative;
-  padding: 1.8rem;
-  border: 2px solid #c3c6ce;
+  padding: 0.5rem;
+  border: 2px solid #cfcebf;
   transition: 0.5s ease-out;
   overflow: visible;
   margin-left: 8px;
+  margin-top: 10px;
 }
 
-.card p.text-title.text-opacity{
-  font-size: 1rem;
+.card p.text-title.text-opacity {
+  font-size: 1.5rem;
 }
 .card-details {
   color: black;
   height: 100%;
   display: grid;
-  place-content: center;
+  grid-template-rows: 50px;
 }
 
 .card-button {
@@ -31,8 +31,8 @@
   width: 60%;
   border-radius: 1rem;
   border: none;
-  background-color: #008bf8;
-  color: #fff;
+  background-color: #e6dec5;
+  color: #332309;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   position: absolute;
@@ -42,18 +42,16 @@
   transition: 0.3s ease-out;
 }
 
-.text-body {
-  color: rgb(134, 134, 134);
-}
-
 .text-title {
   margin: 0;
   font-size: 1.5em;
   font-weight: bold;
+  text-transform: capitalize;
+  color: #332309;
 }
 
 .card:hover {
-  border-color: #008bf8;
+  border-color: #806840;
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -67,4 +65,18 @@
   justify-content: center;
   align-items: center;
   font-size: 2em;
+}
+
+.title-card {
+  font-size: large;
+  color: #332309;
+  font-weight: 500;
+}
+
+.text-value {
+  color: #806840;
+  text-transform: capitalize;
+}
+.spin{
+  width: 100px;
 }

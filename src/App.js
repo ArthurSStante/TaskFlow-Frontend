@@ -3,7 +3,7 @@ import "./index.css";
 import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
 import Auth from "./Pages/Auth";
 import Dashboard from "./Pages/Dashboard";
-import LandingPage  from "./Pages/LandingPage";
+import LandingPage from "./Pages/LandingPage";
 
 function App() {
   return (

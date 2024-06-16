@@ -4,7 +4,7 @@ import styles from "./modal.module.css";
 import { Modal } from "antd";
 import { api } from "../../utils/api";
 
-const App = () => {
+const App = ({ onCreateSuccess }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tituloTarefa, setTituloTarefa] = useState("");
   const [statusTarefa, setStatusTarefa] = useState("");
@@ -31,7 +31,13 @@ const App = () => {
       const response = await api.post("/task/register-task", data);
       if (response.status >= 200) {
         console.log("Tarefa registrada com sucesso");
+        onCreateSuccess(data);
         setIsModalOpen(false);
+        setTituloTarefa("");
+        setStatusTarefa("");
+        setDataLimite("");
+        setDescricao("");
+        setHoraLimite("");
       }
     } catch (error) {
       console.error("Erro ao registrar tarefa:", error);

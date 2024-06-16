@@ -1,7 +1,9 @@
+/* Dash.css */
 .d-flex {
   display: flex;
   color: #332309;
 }
+
 p {
   margin: 0;
 }
@@ -18,6 +20,7 @@ p {
 .content {
   font-size: 22px;
 }
+
 .content button {
   margin: 10px;
   border-radius: 100%;
@@ -36,7 +39,7 @@ p {
   font-size: 17px;
   border-radius: 10px;
   padding: 10px;
-  height: 200px;
+  height: 300px;
   width: 100%;
 }
 
@@ -44,8 +47,19 @@ p {
   margin-top: 112px;
 }
 
-.cards_table {
+/* Adicione estes estilos para o carrossel */
+.carousel-container {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  overflow-y: auto;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  height: 300px;
+ 
 }
